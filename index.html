@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function(){
+                let correct = document.querySelector('.Correct');
+                correct.addEventListener('click', function(){
+                    correct.style.backgroundColor = '#98D06F';
+                    document.getElementById("inc").innerHTML = "Correct!";
+                    });
+
+                let incorrect = document.querySelectorAll('.Incorrect');
+                for ( let i = 0; i < incorrect.length; i++){
+                    incorrect[i].addEventListener('click', function() {
+                        incorrect[i].style.backgroundColor = '#BE391D';
+                        document.getElementById("inc").innerHTML = "Incorrect!";
+                    });
+
+                }
+
+            document.querySelector('#free').addEventListener('click', function(){
+                let cor = ["north corea" , "cuba", "north corea, cuba"]
+                let answer = document.querySelector('input');
+                for (let i = 0; i < cor.length; i++){
+                    if (answer.value.toLowerCase() == cor[i]) {
+                        answer.style.backgroundColor = '#98D06F';
+                        document.getElementById("fre").innerHTML = 'Correct!';
+                        break;
+                    } else {
+                        answer.style.backgroundColor = '#BE391D';
+                        document.getElementById("fre").innerHTML = 'Incorrect!';
+                    }
+                }
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3 id = "q1"> How many chopped stics individually manufactured in China every year?</h3>
+                <p id = "inc"></p>
+                <button class = "Correct">126 million</button>
+                <button class = "Incorrect">63 million</button>
+                <button class = "Incorrect">150 thousands</button>
+                <button class = "Incorrect">who'd be interested in that sh*t?</button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>There are only two countries in the world where Coca Cola does not exist, u can tell one of them?</h3>
+                <p id = "fre"></p>
+                <input type = "text" id = "answer"></input>
+                <button id = "free">Check answer</button>
+                <!-- TODO: Add free response question here -->
+            </div>
+        </div>
+    </body>
+</html>
